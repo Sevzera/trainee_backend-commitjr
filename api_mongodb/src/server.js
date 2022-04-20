@@ -30,7 +30,7 @@ MongoClient.connect("mongodb+srv://sev:123321@cluster0.djqew.mongodb.net/myFirst
         updateFlight(req, res, flightCollection);
       }
       // DELETE
-      else if (req.method === "DELETE") {
+      else if (req.method === "DELETE" && url.match(/\/flights/)) {
         removeFlight(req, res, flightCollection);
       }
       else {
