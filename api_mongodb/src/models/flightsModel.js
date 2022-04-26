@@ -12,9 +12,9 @@ export function removeData(id, flightCollection) {
     });
 }
 
-export function updateData(id, newCountry, flightCollection) {
+export function updateData(id, name, callsign, country, active, flightCollection) {
     return new Promise((resolve, reject) => {
-        flightCollection.updateOne({ "id": id }, { $set: { "country": newCountry } });
+        flightCollection.updateOne({ "id": id }, { $set: { "name": name, "callsign": callsign, "country": country, "active": active } });
         resolve();
     });
 }

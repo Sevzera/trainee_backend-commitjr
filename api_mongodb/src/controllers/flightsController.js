@@ -27,11 +27,11 @@ export async function addFlight(req, res, flightCollection) {
 
 export async function updateFlight(req, res, flightCollection) {
     const body = await getReqBody(req);
-    const { id, newCountry } = JSON.parse(body);
-    updateData(id, newCountry, flightCollection)
+    const { id, name, callsign, country, active } = JSON.parse(body);
+    updateData(id, name, callsign, country, active, flightCollection)
         .then(() => {
             res.writeHead(200, { "Content-Type": "application/json" });
-            res.end("Flight_#" + id + "_has_been_successfully_updated_with_country_" + newCountry);
+            res.end("Flight_#" + id + "_has_been_successfully_updated");
         })
         .catch(err => console.error(err));
 }
